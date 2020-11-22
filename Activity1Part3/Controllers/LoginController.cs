@@ -20,15 +20,23 @@ namespace Activity1Part3.Controllers
         [HttpPost]
         public ActionResult Login(UserModel model)
         {
-            SecurityService sservice = new SecurityService();
-            bool results = sservice.Authenticate(model);
-            if (results)
+            if (ModelState.IsValid)
             {
-                return View("LoginPassed", model);
-            }
+
+                SecurityService sservice = new SecurityService();
+                bool results = sservice.Authenticate(model);
+                if (results)
+                {
+                    return View("LoginPassed", model);
+                }
+                else
+                {
+                    return View("LoginFailed");
+                }
+            } 
             else
             {
-                return View("LoginFailed");
+                return View(model);
             }
         }
 
