@@ -9,7 +9,7 @@ namespace Activity1Part3.Controllers
 {
     public class CustomActionAttribute : FilterAttribute, IActionFilter
     {
-        private static MyLogger logger = MyLogger.GetInstance();
+        private static readonly MyLogger logger = MyLogger.GetInstance();
         public void OnActionExecuted(ActionExecutedContext filterContext)
         {
             logger.Info($"We are using the CustomActionAttribute for {filterContext.ActionDescriptor.ControllerDescriptor.ControllerName} for method {filterContext.ActionDescriptor.ActionName} and within OnActionExecuted.");
