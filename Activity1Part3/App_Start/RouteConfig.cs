@@ -15,8 +15,14 @@ namespace Activity1Part3
 
             routes.MapRoute(
                 name: "Login",
-                url: "{Login}",
+                url: "Login",
                 defaults: new { controller = "Login", action = "Index", id = UrlParameter.Optional }
+            );
+
+            routes.MapRoute(
+                name: "Private",
+                url: "Private",
+                defaults: new { controller = "Login", action = "onPrivateURL", id = UrlParameter.Optional }
             );
 
 

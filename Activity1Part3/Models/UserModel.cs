@@ -9,6 +9,12 @@ namespace Activity1Part3.Models
 {
     public class UserModel
     {
+        public UserModel(string username, string password)
+        {
+            Username = username;
+            Password = password;
+        }
+
         [Required]
         [DisplayName("User Name")]
         [StringLength(20, MinimumLength = 4)]
